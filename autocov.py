@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import os
 import json
 from os import environ
@@ -8,8 +7,7 @@ import sys
 import re
 import shutil
 import time
-
-__version__ = '2016.03.15.3'
+from datetime import datetime
 
 
 def _shell(cmd):
@@ -26,7 +24,7 @@ def generate_cov():
 def git_commit(owner, repo, commit, user, token, dest_folder, cov_folder):
     _shell('git clone --depth=1 --branch=gh-pages https://{user}:{token}@github.com/{owner}/{repo}.git {dest}'.format(
         user=user,
-        token=token
+        token=token,
         owner=owner,
         repo=repo,
         dest=dest_folder
